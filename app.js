@@ -8,7 +8,7 @@ request(url, (err, res) => {
     // parsing the json request and storing as an object
     const data = JSON.parse(res.body)
     // destructuring the (nested) object with ES6 syntax and saving in variables
-    const { currently : {time, summary } } = data
+    const { currently : {temperature, precipProbability } } = data
     // logging the stored properties in the terminal
-    console.log(summary)
+    console.log(`It is currently ${temperature} degrees . There is a ${precipProbability}% chance of rain`)
 })
