@@ -18,12 +18,32 @@ const request  = require('request')
 
 
 // mapbox api endpoint
-const mapurl = "https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1Ijoic2hlcndpbi1nZyIsImEiOiJjazYzYXp0YmYwNjdvM2x0Y2trdTB6ejR2In0.UY5jgrCnFdwRMykLjyRInA&limit=1"
+// const mapurl = "https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1Ijoic2hlcndpbi1nZyIsImEiOiJjazYzYXp0YmYwNjdvM2x0Y2trdTB6ejR2In0.UY5jgrCnFdwRMykLjyRInA&limit=1"
 
-request(mapurl, (err, res) => {
-    const parsed = JSON.parse(res.body)
+// request(mapurl, (err, res) => {
+//     const parsed = JSON.parse(res.body)
 
-    const  { features: [index]    } = parsed
+//     const  { features: [index]    } = parsed
 
-    console.log(index.center[0])
+//     const lat = index.center[1];
+//     const lon = index.center[0];
+
+
+//     console.log(lat)
+// })
+
+
+// callback practice
+
+
+const add = (vals, callback) => {
+    setTimeout(() => {
+        callback(vals[0] + vals[1])
+    }, 200);
+}
+
+const vals = [2,4]
+
+add(vals, (params) => {
+    console.log(params)
 })
