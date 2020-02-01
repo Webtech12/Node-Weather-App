@@ -1,5 +1,7 @@
 const request  = require('request')
 
+const geocode = require('./utils/geocode')
+
 // const url = "https://api.darksky.net/forecast/826344e2268e49193c82d0cc9ae92b3a/37.8267,-122.4233"
 
 // // requesting and endpoint darksky
@@ -17,8 +19,6 @@ const request  = require('request')
 // })
 
 
-// mapbox api endpoint
-// const mapurl = "https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1Ijoic2hlcndpbi1nZyIsImEiOiJjazYzYXp0YmYwNjdvM2x0Y2trdTB6ejR2In0.UY5jgrCnFdwRMykLjyRInA&limit=1"
 
 // request(mapurl, (err, res) => {
 //     const parsed = JSON.parse(res.body)
@@ -32,18 +32,7 @@ const request  = require('request')
 //     console.log(lat)
 // })
 
-
-// callback practice
-
-
-const add = (vals, callback) => {
-    setTimeout(() => {
-        callback(vals[0] + vals[1])
-    }, 200);
-}
-
-const vals = [2,4]
-
-add(vals, (params) => {
-    console.log(params)
+geocode("karachi", (err, data) =>{
+    console.log(err);
+    console.log(data);
 })
