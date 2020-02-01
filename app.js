@@ -1,16 +1,17 @@
-const request  = require('request')
-
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
+if (process.argv.slice(2)[0] == null) {
+    console.log("Null");
+} else {
+    geocode(process.argv.slice(2)[0], (err, data) => {
 
+        console.log(err);
+        console.log(data);
+        forecast(data.lat, data.lon, (err, data) => {
+            console.log(err);
+            console.log(data);
+        })
 
-
-// geocode("karachi", (err, data) =>{
-//     console.log(err);
-//     console.log(data);
-// })
-forecast(-75.7088,44.1545, (err, data) =>{
-    console.log(err);
-    console.log(data);
-})
+    })
+}

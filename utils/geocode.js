@@ -10,16 +10,21 @@ request(mapurl, (err, res) => {
     if (err)
         callback("can't connect", undefined)
     else{
-        const parsed = JSON.parse(res.body)
-        const  { features: [index]    } = parsed
-        const lat = index.center[1];
-        const lon = index.center[0];
-        const location = index.place_name;
-        callback(undefined, {
-            lat,
-            lon,
-            location
-        })
+        try {
+            const parsed = JSON.parse(res.body)
+            const  { features: [index]    } = parsed
+            const lat = index.center[1];
+            const lon = index.center[0];
+            const location = index.place_name;
+            callback(undefined, {
+                lat,
+                lon,
+                location
+            })
+        } catch (error) {
+            console.log('City Not Found');
+        }
+        
     }
 })
 }

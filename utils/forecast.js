@@ -16,8 +16,8 @@ const forecast= (lat, lon, callback) => {
         // destructuring the (nested) object with ES6 syntax and saving in variables
         const { daily : {data : [s] } } = data
         // logging the stored properties in the terminal
-        callback(undefined, s.summary)
-        // callback(undefined, `It is currently ${temperature} degrees . There is a ${precipProbability}% chance of rain`)
+        // callback(undefined, data)
+        callback(undefined, `It is currently ${data.currently.temperature} degrees . There is a ${s.precipProbability}% chance of rain`)
         }
     })
 }
